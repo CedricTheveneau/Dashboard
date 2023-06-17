@@ -1,0 +1,418 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #081a51;
+  --hover-bg-color: #1b2b65;
+  --sidebar-left-padding: 30px;
+}
+
+.sidebar {
+  background-color: var(--main-bg-color);
+  width: 18%;
+  height: 100dvh;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: width 250ms;
+}
+
+.sidebar > * {
+  transition: all 350ms;
+}
+
+.sidebar.closed {
+  width: 5%;
+  padding: 24px 0 24px 10px;
+}
+
+.sidebar.closed + .content > .home > .widgets > .leftwidgets {
+  width: 26%;
+}
+
+.sidebar.closed > * {
+  transition: all 250ms;
+}
+
+.sidebar.closed .closeBtn {
+  /* left: 62%; */
+  left: 55%;
+  top: -22%;
+}
+
+.sidebar .upperPart,
+.sidebar .logo,
+.sidebar .mainMenu,
+.sidebar .workspace,
+.sidebar .general {
+  transition: padding 250ms, margin 250ms;
+}
+
+.sidebar.closed .upperPart,
+.sidebar.closed .logo,
+.sidebar.closed .mainMenu,
+.sidebar.closed .workspace,
+.sidebar.closed .general {
+  padding: 0 0 0 3px;
+  margin: 0;
+  transition: padding 250ms, margin 250ms;
+}
+
+.sidebar.closed .logo > img {
+  padding: 0 10px 0 0;
+}
+
+.sidebar.closed .mainMenu > *,
+.sidebar.closed .workspace > *,
+.sidebar.closed .general > * {
+  gap: 50px;
+}
+
+.sidebar.closed .mainMenu .notifications,
+.sidebar.closed .workspace .notifications,
+.sidebar.closed .general .notifications {
+  border-radius: 50%;
+  scale: 0.6;
+  /* left: 40%; */
+  left: 35%;
+  top: 20%;
+}
+
+.sidebar.closed .logo {
+  gap: 10px;
+  /* padding: 0 0 0 5px; */
+  padding: 0 0 0 3px;
+}
+
+.sidebar.closed .logo img {
+  scale: 0.7;
+}
+
+.sidebar.closed .closeBtn {
+  transform: rotateZ(180deg);
+  scale: 0.7;
+}
+
+.sidebar.closed .logo img:nth-child(1) {
+  margin: auto;
+}
+
+.sidebar.closed button {
+  overflow-x: hidden;
+}
+
+.sidebar.closed button img {
+  margin: auto;
+}
+
+.sidebar.closed h3 {
+  display: none;
+}
+
+.sidebar.closed .helpBox {
+  width: 5%;
+  background-color: transparent;
+}
+
+.sidebar.closed .helpBox svg {
+  top: 90%;
+  scale: 0.8;
+  cursor: pointer;
+  transition: top 500ms 250ms;
+}
+
+.sidebar.closed .helpBox h4,
+.sidebar.closed .helpBox button {
+  scale: 0;
+  transition: scale 250ms;
+}
+
+.upperPart {
+  padding: 0 0 0 var(--sidebar-left-padding);
+}
+
+h3 {
+  color: #51cbff;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0 0 9px 10px;
+}
+
+.mainMenu h3 {
+  text-transform: uppercase;
+}
+
+button {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ccd2e3;
+  padding: 10px;
+  background: transparent;
+  border: transparent;
+  border-radius: 6px 0 0 6px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  position: relative;
+}
+
+button:hover,
+button.clicked {
+  background-color: var(--hover-bg-color);
+  color: #ffffff;
+}
+
+button > img {
+  margin: 0 10px 0 0;
+}
+
+.notifications {
+  font-size: 18px;
+  background-color: #cf3a59;
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 80%;
+}
+
+button:hover > .notifications {
+  animation: notifHover 1000ms 250ms ease-in-out forwards;
+}
+
+.sidebar.closed button:hover > .notifications {
+  animation: notifHoverRedux 1000ms 250ms ease-in-out forwards;
+}
+
+@keyframes notifHover {
+  0% {
+    scale: 1;
+    font-size: 18px;
+  }
+
+  50% {
+    scale: 1.3;
+    border-radius: 50px;
+  }
+
+  100% {
+    border-radius: 4px;
+    scale: 1;
+    font-size: 18px;
+  }
+}
+
+@keyframes notifHoverRedux {
+  0% {
+    scale: 1;
+    font-size: 18px;
+  }
+
+  50% {
+    scale: 1.3;
+    border-radius: 50px;
+  }
+
+  100% {
+    border-radius: 50px;
+    scale: 1;
+    font-size: 18px;
+  }
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 24px;
+  color: #ffffff;
+  align-items: center;
+  gap: 7px;
+}
+
+.logo:hover {
+  background-color: transparent;
+  color: #ccd2e3;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.top > .closeBtn {
+  background-color: transparent;
+  position: absolute;
+  left: 88%;
+  transition: transform 250ms 250ms, scale 250ms 250ms;
+}
+
+.mainMenu {
+  margin: 50px 0 0 0;
+}
+
+.workspace,
+.general {
+  margin: 32px 0 0 0;
+}
+
+.helpBox {
+  background-color: var(--hover-bg-color);
+  border-radius: 6px;
+  font-size: 14px;
+  height: 125px;
+  width: 204px;
+  padding: 17px 19px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  color: #ffffff;
+}
+
+.helpBox > svg {
+  position: absolute;
+  top: 0%;
+  transform: translateY(-45%);
+  transition: top 250ms;
+}
+
+.helpBox > h4 {
+  font-weight: 400;
+  transition: scale 250ms 250ms;
+}
+
+.helpBox > h4 > span {
+  font-weight: 700;
+}
+
+.helpBox > button {
+  background-color: #017efa;
+  color: #ffffff;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  transition: scale 250ms 250ms, background-color 250ms;
+}
+
+.helpBox > button:hover {
+  background-color: var(--main-bg-color);
+  color: #ccd2e3;
+}
+
+/*! Media Queries for my screen only */
+@media screen and (max-width: 1800px) {
+  .sidebar {
+    padding: 0 0 12px 0;
+    justify-content: space-between;
+  }
+
+  .sidebar.closed {
+    padding: 10px 0 24px 0px;
+  }
+
+  .sidebar.closed .upperPart {
+    padding: 0px 0 0px 12px;
+  }
+
+  .upperPart {
+    padding: 0 0 0 5px;
+  }
+
+  .logo {
+    font-size: 18px;
+    gap: 4px;
+    width: fit-content;
+  }
+
+  .logo > img {
+    transition: scale 250ms;
+  }
+
+  .top > .closeBtn {
+    width: fit-content;
+    background-color: transparent;
+    position: absolute;
+    left: 87%;
+  }
+
+  .top > .closeBtn > img {
+    margin: 0;
+  }
+
+  button {
+    font-size: 14px;
+    align-items: center;
+  }
+
+  .notifications {
+    font-size: 14px;
+    background-color: #cf3a59;
+    padding: 2px 6px;
+  }
+
+  .sidebar.closed button:hover > .notifications {
+    animation: notifHoverRedux 1000ms 250ms ease-in-out forwards;
+  }
+
+  @keyframes notifHover {
+    0% {
+      scale: 1;
+      font-size: 14px;
+    }
+
+    50% {
+      border-radius: 50px;
+      scale: 1.3;
+    }
+
+    100% {
+      scale: 1;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+  }
+
+  @keyframes notifHoverRedux {
+    0% {
+      scale: 0.6;
+      font-size: 14px;
+    }
+
+    50% {
+      border-radius: 50px;
+      scale: 1.3;
+    }
+
+    100% {
+      scale: 0.6;
+      font-size: 14px;
+      border-radius: 50px;
+    }
+  }
+
+  .mainMenu {
+    margin: 20px 0 0 0;
+  }
+
+  .workspace,
+  .general {
+    margin: 12px 0 0 0;
+  }
+}

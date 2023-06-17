@@ -1,0 +1,9 @@
+.layout {
+  display: flex;
+  overflow: hidden;
+}
+
+.layout > .content {
+  width: 100%;
+  background-color: #f8f9ff;
+}

@@ -1,0 +1,537 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px 20px 20px;
+  border-bottom: 1px solid #dadada;
+}
+
+.title > h3 {
+  text-transform: capitalize !important;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c1f37;
+}
+
+.title > .cta {
+  background-color: transparent;
+  width: fit-content;
+  color: #017efa;
+  position: relative;
+}
+
+.title > .cta::after {
+  content: "";
+  width: 70%;
+  height: 2px;
+  left: 8%;
+  top: 75%;
+  background-color: #017efa;
+  position: absolute;
+  z-index: 3;
+  border-radius: 50px;
+  scale: 0;
+  transition: scale 500ms;
+  transform-origin: right;
+}
+
+.title > .cta:hover::after {
+  scale: 1;
+  transform-origin: left;
+}
+
+.schedule .numbers,
+.schedule .progressBarChannel,
+.schedule .channelsComponents {
+  display: none;
+}
+
+.scheduleComponents {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 25px 0 25px;
+  transition: background-color 250ms;
+  cursor: pointer;
+}
+
+.scheduleComponents:hover {
+  background-color: #dadada80;
+}
+
+.scheduleComponents > .topHalf {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scheduleComponents .date {
+  border: 1px #dadada solid;
+  width: 40px;
+  height: 46px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scheduleComponents .date > p:nth-child(1) {
+  font-size: 12px;
+  font-weight: 600;
+  color: #00000080;
+}
+
+.scheduleComponents .date > p:nth-child(2) {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1f37;
+}
+
+.scheduleComponents .task > p:nth-child(1) {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c1f37;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.scheduleComponents .task > p:nth-child(2),
+.scheduleComponents .bottomHalf > p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #1c1f3780;
+}
+
+.scheduleComponents .bottomHalf {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid #dadada80;
+}
+
+.scheduleComponents:nth-child(3) .bottomHalf {
+  border: none;
+}
+
+.scheduleComponents .bottomHalf > .progressBar {
+  width: 69px;
+  height: 4px;
+  background-color: #c4c4c4;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scheduleComponents .bottomHalf > .progressBar::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  width: 53px;
+  height: 4px;
+  background-color: #51cbff;
+  z-index: 2;
+}
+
+.scheduleComponents:nth-child(2) .bottomHalf > .progressBar::after {
+  width: 10px;
+}
+
+.scheduleComponents:nth-child(3) .bottomHalf > .progressBar::after {
+  width: 30px;
+}
+
+.scheduleComponents:nth-child(3) {
+  margin: 0 0 50px 0;
+}
+
+.topChannels .scheduleComponents {
+  display: none;
+}
+
+.numbers {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 20px 26px;
+}
+
+.numbers > h4 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.numbers > p {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.numbers > p > span {
+  font-weight: 700;
+  color: #30d988;
+}
+
+.progressContainer {
+  padding: 0 26px 0px 26px;
+}
+
+.progressBarChannel {
+  height: 10px;
+  width: 100%;
+  margin: auto;
+  border-radius: 50px;
+  display: flex;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.progressBarChannel > .progress {
+  height: 100%;
+}
+
+.progressBarChannel > .progress:nth-child(1) {
+  background-color: #017efa;
+  width: 55px;
+}
+
+.progressBarChannel > .progress:nth-child(2) {
+  background-color: #fd1f9b;
+  width: 182px;
+}
+
+.progressBarChannel > .progress:nth-child(3) {
+  background-color: #007ab5;
+  width: 99px;
+}
+
+.progressBarChannel > .progress:nth-child(4) {
+  background-color: #ff0000;
+  width: 36px;
+}
+
+.channelsComponents {
+  padding: 0px 26px 0 26px;
+}
+
+.channelsComponents:nth-child(6) {
+  padding: 15px 26px 0 26px;
+}
+
+.channelsComponents .content {
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dadada80;
+}
+
+.channelsComponents .content:nth-last-child() {
+  border: none;
+}
+
+.channelsComponents p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #313131;
+}
+
+.channelsComponents p:nth-child(2) {
+  font-weight: 600;
+}
+
+.channelsComponents p:nth-child(3) {
+  margin: 0 65px 0 93px;
+}
+
+.channelsComponents:nth-child(6) p:nth-child(2) {
+  color: #017efa;
+}
+
+.channelsComponents:nth-child(7) p:nth-child(2) {
+  color: #fd1f9b;
+}
+
+.channelsComponents:nth-child(8) p:nth-child(2) {
+  color: #007ab5;
+}
+
+.channelsComponents:nth-child(9) p:nth-child(2) {
+  color: #ff0000;
+}
+
+.channelsComponents:nth-child(9) {
+  margin: 0 0 35px 0;
+}
+
+.channelsComponents:nth-child(9) .content {
+  border: none;
+}
+
+/*! Media Queries for my screen only */
+@media screen and (max-width: 1800px) {
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px 5px 20px;
+    border-bottom: 1px solid #dadada;
+  }
+
+  .title > h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1c1f37;
+  }
+
+  .title > .cta {
+    background-color: transparent;
+    width: fit-content;
+    color: #017efa;
+    font-size: 12px;
+  }
+
+  .schedule .numbers,
+  .schedule .progressBarChannel,
+  .schedule .channelsComponents {
+    display: none;
+  }
+
+  .scheduleComponents {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 20px 0 20px;
+  }
+
+  .scheduleComponents > .topHalf {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .scheduleComponents .date {
+    border: 1px #dadada solid;
+    width: 30px;
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scheduleComponents .date > p:nth-child(1) {
+    font-size: 10px;
+    font-weight: 600;
+    color: #00000080;
+  }
+
+  .scheduleComponents .date > p:nth-child(2) {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1c1f37;
+  }
+
+  .scheduleComponents .task > p:nth-child(1) {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1c1f37;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .scheduleComponents .task > p:nth-child(2),
+  .scheduleComponents .bottomHalf > p {
+    font-size: 10px;
+    font-weight: 400;
+    color: #1c1f3780;
+  }
+
+  .scheduleComponents .bottomHalf {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 0 6px 0;
+    border-bottom: 1px solid #dadada80;
+  }
+
+  .scheduleComponents:nth-child(3) .bottomHalf {
+    border: none;
+  }
+
+  .scheduleComponents .bottomHalf > .progressBar {
+    width: 69px;
+    height: 4px;
+    background-color: #c4c4c4;
+    position: relative;
+  }
+
+  .scheduleComponents .bottomHalf > .progressBar::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    width: 53px;
+    height: 4px;
+    background-color: #51cbff;
+    z-index: 2;
+  }
+
+  .scheduleComponents:nth-child(3) .bottomHalf > .progressBar::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    width: 10px;
+    height: 4px;
+    background-color: #51cbff;
+    z-index: 2;
+  }
+
+  .scheduleComponents:nth-child(2) .bottomHalf > .progressBar::after {
+    width: 10px;
+  }
+
+  .scheduleComponents:nth-child(3) .bottomHalf > .progressBar::after {
+    width: 30px;
+  }
+
+  .scheduleComponents:nth-child(3) {
+    margin: 0 0 50px 0;
+  }
+
+  .scheduleComponents:nth-child(3) {
+    margin: 0 0 10px 0;
+  }
+
+  .topChannels .scheduleComponents {
+    display: none;
+  }
+
+  .numbers {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    padding: 8px 20px;
+  }
+
+  .numbers > h4 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .numbers > p {
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  .numbers > p > span {
+    font-weight: 700;
+    color: #30d988;
+  }
+
+  .progressContainer {
+    padding: 0 20px 0px 20px;
+  }
+
+  .progressBarChannel {
+    height: 6px;
+    width: 100%;
+    margin: auto;
+    border-radius: 50px;
+    display: flex;
+    gap: 3px;
+    overflow: hidden;
+  }
+
+  .progressBarChannel > .progress {
+    height: 100%;
+  }
+
+  .progressBarChannel > .progress:nth-child(1) {
+    background-color: #017efa;
+    width: 55px;
+  }
+
+  .progressBarChannel > .progress:nth-child(2) {
+    background-color: #fd1f9b;
+    width: 182px;
+  }
+
+  .progressBarChannel > .progress:nth-child(3) {
+    background-color: #007ab5;
+    width: 99px;
+  }
+
+  .progressBarChannel > .progress:nth-child(4) {
+    background-color: #ff0000;
+    width: 36px;
+  }
+
+  .channelsComponents {
+    padding: 0px 20px 0 20px;
+  }
+
+  .channelsComponents:nth-child(6) {
+    padding: 5px 20px 0 20px;
+  }
+
+  .channelsComponents .content {
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dadada80;
+  }
+
+  .channelsComponents .content:nth-last-child() {
+    border: none;
+  }
+
+  .channelsComponents p {
+    font-weight: 400;
+    font-size: 12px;
+    color: #313131;
+  }
+
+  .channelsComponents p:nth-child(2) {
+    font-weight: 600;
+  }
+
+  .channelsComponents p:nth-child(3) {
+    margin: 0 30px 0 50px;
+  }
+
+  .channelsComponents:nth-child(6) p:nth-child(2) {
+    color: #017efa;
+  }
+
+  .channelsComponents:nth-child(7) p:nth-child(2) {
+    color: #fd1f9b;
+  }
+
+  .channelsComponents:nth-child(8) p:nth-child(2) {
+    color: #007ab5;
+  }
+
+  .channelsComponents:nth-child(9) p:nth-child(2) {
+    color: #ff0000;
+  }
+
+  .channelsComponents:nth-child(9) {
+    margin: 0 0 10px 0;
+  }
+}
